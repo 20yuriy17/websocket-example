@@ -1,4 +1,4 @@
-const PORT = 9988;
+const PORT = process.env.PORT || 9988;
 const express = require('express');
 const app = express();
 const server = require('http').Server(app);
@@ -25,7 +25,7 @@ io.on('connection', (client) => {
     })
 });
 
-app.use(express.static('../build'));
+app.use(express.static('./build'));
 server.listen(PORT, () => {
     console.log(`Server is started on port №${PORT}`);
 });
